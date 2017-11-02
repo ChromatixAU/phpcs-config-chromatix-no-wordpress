@@ -1,0 +1,36 @@
+{
+  "name":        "chromatix/phpcs-config-chromatix-no-wordpress",
+  "description": "Like phpcs-config-chromatix, but without the rules for things that can only be used in the WordPress context.",
+  "homepage":    "https://github.com/ChromatixAU/phpcs-config-chromatix-no-wordpress",
+  "license":     "MIT",
+  "authors": [
+    {
+      "name": "Tim Malone",
+      "email": "tim.malone@chromatix.com.au",
+      "homepage": "https://www.chromatix.com.au"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/ChromatixAU/phpcs-config-chromatix-no-wordpress/issues",
+    "source": "https://github.com/ChromatixAU/phpcs-config-chromatix-no-wordpress"
+  },
+  "keywords": [
+    "phpcs",
+    "phpcs-config",
+    "wordpress",
+    "chromatix",
+    "php"
+  ],
+  "require": {
+    "chromatix/phpcs-config-chromatix": "*"
+  },
+  "scripts": {
+    "lint": "find . -type d \\( -name '.git' -o -name 'vendor' -o -name 'node_modules' \\) -prune -o -type f -name '*.php' -print | xargs phpcs",
+    "post-install-cmd": [
+      "sh -c 'if [[ $OSTYPE == linux* ]]; then php vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs; fi'",
+      "sh -c 'if [[ $OSTYPE == darwin* ]]; then php vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs; fi'",
+      "sh -c 'if [[ $OSTYPE == msys* ]]; then sh vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs; fi'",
+      "sh -c 'if [[ -z $OSTYPE ]]; then sh vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs; fi'"
+    ]
+  }
+}
