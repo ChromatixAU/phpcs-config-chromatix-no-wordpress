@@ -26,6 +26,11 @@
   },
   "scripts": {
     "lint": "find . -type d \\( -name '.git' -o -name 'vendor' -o -name 'node_modules' \\) -prune -o -type f -name '*.php' -print | xargs vendor/bin/phpcs",
-    "post-install-cmd": "phpcs --config-set installed_paths ../../chromatix,../../wp-coding-standards/wpcs",
+    "post-install-cmd": [
+      "bash -c 'if [[ $OSTYPE == linux* ]]; then php vendor/bin/phpcs --config-set installed_paths ../../chromatix,../../wp-coding-standards/wpcs; fi'",
+      "bash -c 'if [[ $OSTYPE == darwin* ]]; then php vendor/bin/phpcs --config-set installed_paths ../../chromatix,../../wp-coding-standards/wpcs; fi'",
+      "bash -c 'if [[ $OSTYPE == msys* ]]; then bash vendor/bin/phpcs --config-set installed_paths ../../chromatix,../../wp-coding-standards/wpcs; fi'",
+      "bash -c 'if [[ -z $OSTYPE ]]; then bash vendor/bin/phpcs --config-set installed_paths ../../chromatix,../../wp-coding-standards/wpcs; fi'"
+    ]
   }
 }
