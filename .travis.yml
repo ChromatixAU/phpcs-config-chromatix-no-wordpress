@@ -44,7 +44,8 @@ script:
   - travis_retry curl --fail --location https://chr-cicd.herokuapp.com/scripts/xml-lint.sh | bash
 
   # Check code standards on our custom Sniffs.
-  - composer lint
+  # Disabled for now, see https://github.com/ChromatixAU/phpcs-config-chromatix/issues/6
+  #- composer lint
 
 notifications:
   email: false
