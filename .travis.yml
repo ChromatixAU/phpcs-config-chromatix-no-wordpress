@@ -32,22 +32,16 @@ matrix:
   # Allow build to finish before our allowed failures run.
   fast_finish: true
 
-before_install:
-  - export XMLLINT_INDENT=" "
-
 install:
-  - travis_retry curl -s http://getcomposer.org/installer | php
-  - travis_retry php composer.phar install --dev --no-interaction
+
+  # Install Composer dependencies.
+  - travis_retry composer install --prefer-dist --no-interaction
 
 script:
 
-  # Lint the PHP.
+  # Lint the PHP & XML.
   - travis_retry curl --fail --location https://chr-cicd.herokuapp.com/scripts/php-lint.sh | bash
-
-  # Validate XML and check the code-style consistency.
-  # @see http://xmlsoft.org/xmllint.html
-  - xmllint --noout ./ruleset.xml
-  - diff -B ./ruleset.xml <(xmllint --format "./ruleset.xml")
+  - travis_retry curl --fail --location https://chr-cicd.herokuapp.com/scripts/xml-lint.sh | bash
 
   # Check code standards on our custom Sniffs.
   - composer lint
