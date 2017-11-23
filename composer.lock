@@ -4,9 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "34782831a4de36b8f6ec14a5edece33d",
-    "content-hash": "be6da8f25cc0171a866551693d557c50",
+    "hash": "0d9bc14bbcd4a070736fb7384b6fc834",
+    "content-hash": "3e5fa700b15a84d43f3343a828690ce0",
     "packages": [
+        {
+            "name": "chromatix/phpcs-config-chromatix",
+            "version": "v0.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ChromatixAU/phpcs-config-chromatix.git",
+                "reference": "ff40f643256daa2cb119db9951706172bc0c2c92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ChromatixAU/phpcs-config-chromatix/zipball/ff40f643256daa2cb119db9951706172bc0c2c92",
+                "reference": "ff40f643256daa2cb119db9951706172bc0c2c92",
+                "shasum": ""
+            },
+            "require": {
+                "wp-coding-standards/wpcs": "0.13.1"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Malone",
+                    "email": "tim.malone@chromatix.com.au",
+                    "homepage": "https://www.chromatix.com.au"
+                }
+            ],
+            "description": "Chromatix custom config for phpcs. Based heavily on the WordPress Coding Standards but with some of our own too.",
+            "homepage": "https://github.com/ChromatixAU/phpcs-config-chromatix",
+            "keywords": [
+                "chromatix",
+                "php",
+                "phpcs",
+                "phpcs-config",
+                "wordpress"
+            ],
+            "time": "2017-11-22 01:28:05"
+        },
         {
             "name": "squizlabs/php_codesniffer",
             "version": "3.1.1",
